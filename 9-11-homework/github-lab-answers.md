@@ -37,4 +37,14 @@ git checkout -b
 git checkout
 
 #Why would you want to use a branch other than the default master?
-you don't want to work on the origin but the feature 
+you don't want to work on the origin but the feature
+
+
+===============
+
+#Give an example for when you would use git merge and give an example for when it would be better to submit a pull request to have your branch merged
+If you have made a change to your fork that you want to be integrated into the original repo, you'll have to ask the original repo owner to review and merge your changes into theirs.
+
+
+#What command do you use to send all of the work that you've done locally to your remote repository?
+git push origin master
