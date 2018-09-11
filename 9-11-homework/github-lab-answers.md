@@ -26,3 +26,15 @@ git revert
 
 #Why might you want to reset your files back to a previous commit?
 if you are not sure if you want to keep it  
+
+
+==============
+
+#What command do you use to create a branch?
+git checkout -b
+
+#What command do you use to use a different branch?
+git checkout
+
+#Why would you want to use a branch other than the default master?
+you don't want to work on the origin but the feature 
