@@ -12,12 +12,17 @@ git push origin master
 
 ==========
 
-What command do you use to pull any changes from the master repository into your local repository?
+#What command do you use to pull any changes from the master repository into your local repository?
+git pull origin master
 
-What command do you use to unstage a file?
+#What command do you use to unstage a file?
+git reset
 
-What command do you use to change your files back to how they were after a commit?
+#What command do you use to change your files back to how they were after a commit?
+git pull upstream master
 
-Why is it important to use -- when changing files back to a previous state?
+#Why is it important to use -- when changing files back to a previous state?
+git revert
 
-Why might you want to reset your files back to a previous commit?
+#Why might you want to reset your files back to a previous commit?
+if you are not sure if you want to keep it  
