@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Music</h1>
+
+      <%= for (let i = 0; i < music.length; i++) {%>
+            <ul>
+            <% music[i].artiest; %>
+            <% music[i].genre; %>
+            <% music[i].goodWithBass; %>
+        <img src="<%music[i].image; %>" alt="">
+            </ul>
+
+      }
+
+
+
+
+
+  </body>
+</html>
