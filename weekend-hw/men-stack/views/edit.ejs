@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+  <h1>Edit Your Music</h1>
+  <form method="POST" action="/music/<%=music.id%>?_method=PUT">
+    Name: <input type="text" name="name" value="<%=music.name%>"><br/>
+      Genre: <input type="text" name="genre" value="<%=music.genre%>"><br/>
+      GoodWithBass: <input type="checkbox" name="goodWithBass"
+              <% if (music.goodWithBass === true) { %>
+              checked
+    <% } %>
+    />
+    </br>
+    <input type="submit" name="" value="Change Artiest"/>
+        </form>
+
+</body>
+
+</html>
