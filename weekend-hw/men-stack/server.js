@@ -4,22 +4,54 @@ const Music = require('./models/music');
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+// require database
+require('./db/db'); 
 
-app.get('/', (req, res) => {
-  res.send('It is Aliveeeeeee')
-})
+// middleware
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
-app.get('/music/:index', (req, res) => {
-  res.render('index.ejs', {
-    list: Music[req.params.index]
-  });
-});
+// index route
 app.get('/music', (req, res) => {
-  res.send(Music)
+
+  music.find{}, (err, allMusic) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('index.ejs', {
+        music: allMusic
+      });
+    }
+  })
+});
+
+// post route
+app.post('/music', (req, res) => {
+  console.log(req.body, 'this is info home')
+  if (req.body.goodWithBass === 'on') {
+    req.body.goodWithBass = true;
+  } else {
+    req.body.goodWithBass = false;
+  }
+  Music.create(req.body, (err, createdMusic) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(createdMusic);
+      res.redirect('/music');
+    }
+  });
 })
+
+// show route
+app.get('/food/:index', (req, res) => {
+  Music.findById(req.params.index, (err, foundMusic) => {
+    res.render('show.ejs', {
+      music: foundMusic
+    })
+  })
+});
+
 
 
 app.listen(3000, () => {
