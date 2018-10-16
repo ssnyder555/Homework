@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 
 require('./db/db');
 
-const usersController = require('./controllers/users');
+const usersController = require('./controllers/user');
 
 
 // make sure to require this before our controller
