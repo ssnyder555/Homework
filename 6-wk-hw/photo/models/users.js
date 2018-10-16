@@ -5,4 +5,4 @@ const usersSchema = new mongoose.Schema({
   name: String
 });
 
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('Users', usersSchema);
