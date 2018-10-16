@@ -1,25 +1,25 @@
 const express = require('express');
 const router  = express.Router();
 // Models job is to communicate with the DB
-const Author  = require('../models/authors');
+const Users  = require('../models/users');
 
 router.get('/', (req, res) => {
-  Author.find({}, (err, foundAuthors) => {
-    res.render('authors/index.ejs', {
-      authors: foundAuthors
+  Users.find({}, (err, foundUsers) => {
+    res.render('users/index.ejs', {
+      users: foundAuthors
     });
   })
 
 });
 
 router.get('/new', (req, res) => {
-  res.render('authors/new.ejs');
+  res.render('users/new.ejs');
 });
 
 router.get('/:id',(req, res) => {
 
-  Author.findById(req.params.id, (err, authorFound) => {
-    res.render('authors/show.ejs', {
+  User.findById(req.params.id, (err, userFound) => {
+    res.render('users/show.ejs', {
       author: authorFound
     })
   });
@@ -27,35 +27,35 @@ router.get('/:id',(req, res) => {
 
 
 router.get('/:id/edit', (req, res) => {
-  Author.findById(req.params.id, (err, editAuthor) => {
-    res.render('authors/edit.ejs', {
-      author: editAuthor
+  Users.findById(req.params.id, (err, editUsers) => {
+    res.render('Users/edit.ejs', {
+      users: editUsers
     });
   });
 });
 
 router.post('/', (req, res) => {
 
-  Author.create(req.body, (err, createdAuthor) => {
+  Users.create(req.body, (err, createdUser) => {
 
     if(err){
       console.log(err)
     } else {
-      res.redirect('/authors')
+      res.redirect('/users')
     }
   });
 
 });
 
 router.put('/:id', (req, res) => {
-  Author.findByIdAndUpdate(req.params.id, req.body, (err, updateAuthor) => {
-    res.redirect('/authors');
+  Users.findByIdAndUpdate(req.params.id, req.body, (err, updateUsers) => {
+    res.redirect('/users');
   });
 });
 
 router.delete('/:id', (req, res) => {
-  Author.findOneAndDelete(req.params.id, (err, deleted) => {
-    res.redirect('/authors')
+  Users.findOneAndDelete(req.params.id, (err, deleted) => {
+    res.redirect('/users')
   })
 });
 
